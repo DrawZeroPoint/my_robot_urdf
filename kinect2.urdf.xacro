@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="kinect2"
+  xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <joint name="camera_link_joint" type="fixed">
+    <origin xyz="0.12 0 0.13" rpy="${-H_PI} 0 ${-H_PI}"/>
+    <parent link="base_footprint"/>
+    <child link="kinect2_link" />
+  </joint>
+  
+  <link name="kinect2_link" />
+
+  <joint name="camera_ir_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="kinect2_link"/>
+    <child link="kinect2_ir_optical_frame" />
+  </joint>
+  
+  <link name="kinect2_ir_optical_frame" />
+
+  <joint name="camera_rgb_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="kinect2_link"/>
+    <child link="kinect2_rgb_optical_frame" />
+  </joint>
+  
+  <link name="kinect2_rgb_optical_frame" />
+</robot>
